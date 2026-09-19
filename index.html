@@ -1,0 +1,420 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Подножный корм — кафе правильного питания и тортов без сахара</title>
+<meta name="description" content="Кафе здорового питания «Подножный корм»: авторские торты без сахара, глютена и лактозы, завтраки, церемониальное какао и уютное пространство для встреч.">
+<style>
+  :root {
+    --green-dark: #2f5d3a;
+    --green: #4c7a4f;
+    --green-soft: #eef4ec;
+    --cream: #faf6ef;
+    --brown: #6b4f3a;
+    --accent: #d98e4a;
+    --text: #33302b;
+    --muted: #7a756c;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: "Segoe UI", "Helvetica Neue", Arial, sans-serif;
+    color: var(--text);
+    background: var(--cream);
+    line-height: 1.6;
+  }
+  .container { max-width: 1080px; margin: 0 auto; padding: 0 20px; }
+
+  /* ---------- Шапка ---------- */
+  header {
+    background: linear-gradient(135deg, var(--green-dark) 0%, var(--green) 100%);
+    color: #fff;
+    padding: 90px 0 70px;
+    text-align: center;
+  }
+  header .logo-emoji { font-size: 56px; display: block; margin-bottom: 16px; }
+  header h1 { font-size: clamp(34px, 6vw, 56px); letter-spacing: 1px; margin-bottom: 14px; }
+  header p.tagline {
+    font-size: clamp(17px, 2.5vw, 21px);
+    opacity: .92;
+    max-width: 640px;
+    margin: 0 auto 28px;
+  }
+  .btn {
+    display: inline-block;
+    background: var(--accent);
+    color: #fff;
+    text-decoration: none;
+    font-weight: 600;
+    padding: 14px 34px;
+    border-radius: 40px;
+    transition: transform .15s ease, box-shadow .15s ease;
+  }
+  .btn:hover { transform: translateY(-2px); box-shadow: 0 8px 20px rgba(0,0,0,.2); }
+  .btn.secondary {
+    background: transparent;
+    border: 2px solid rgba(255,255,255,.7);
+    margin-left: 12px;
+  }
+
+  nav {
+    background: #fff;
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    box-shadow: 0 2px 8px rgba(0,0,0,.06);
+  }
+  nav .container { display: flex; justify-content: center; gap: 8px; flex-wrap: wrap; padding: 12px 20px; }
+  nav a {
+    text-decoration: none;
+    color: var(--green-dark);
+    font-weight: 600;
+    padding: 8px 18px;
+    border-radius: 20px;
+    transition: background .15s ease;
+  }
+  nav a:hover { background: var(--green-soft); }
+
+  section { padding: 70px 0; }
+  section h2 {
+    font-size: clamp(26px, 4vw, 36px);
+    color: var(--green-dark);
+    text-align: center;
+    margin-bottom: 14px;
+  }
+  section p.section-sub {
+    text-align: center;
+    color: var(--muted);
+    max-width: 620px;
+    margin: 0 auto 44px;
+  }
+
+  /* ---------- Концепция ---------- */
+  .concept-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+    gap: 22px;
+  }
+  .concept-card {
+    background: #fff;
+    border-radius: 16px;
+    padding: 28px 24px;
+    text-align: center;
+    box-shadow: 0 4px 14px rgba(0,0,0,.05);
+    transition: transform .15s ease;
+  }
+  .concept-card:hover { transform: translateY(-4px); }
+  .concept-card .icon { font-size: 40px; margin-bottom: 14px; }
+  .concept-card h3 { color: var(--green-dark); font-size: 19px; margin-bottom: 8px; }
+  .concept-card p { color: var(--muted); font-size: 15px; }
+
+  .concept-intro {
+    background: var(--green-soft);
+    border-radius: 20px;
+    padding: 40px;
+    margin-bottom: 40px;
+    font-size: 17px;
+  }
+  .concept-intro strong { color: var(--green-dark); }
+
+  /* ---------- Торты ---------- */
+  #cakes { background: #fff; }
+  .cakes-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    gap: 24px;
+  }
+  .cake-card {
+    border: 1px solid #eee5d8;
+    border-radius: 16px;
+    overflow: hidden;
+    background: var(--cream);
+    display: flex;
+    flex-direction: column;
+    transition: box-shadow .15s ease;
+  }
+  .cake-card:hover { box-shadow: 0 8px 20px rgba(0,0,0,.08); }
+  .cake-img {
+    height: 170px;
+    background: linear-gradient(135deg, #e9dcc8, #d8c4a4);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 56px;
+  }
+  .cake-body { padding: 20px; flex: 1; display: flex; flex-direction: column; }
+  .cake-body h3 { color: var(--green-dark); font-size: 19px; margin-bottom: 6px; }
+  .cake-body p { color: var(--muted); font-size: 14.5px; flex: 1; }
+  .cake-tags { margin-top: 12px; display: flex; flex-wrap: wrap; gap: 6px; }
+  .tag {
+    background: var(--green-soft);
+    color: var(--green-dark);
+    font-size: 12.5px;
+    font-weight: 600;
+    padding: 4px 10px;
+    border-radius: 12px;
+  }
+  .cake-price { margin-top: 12px; font-size: 18px; font-weight: 700; color: var(--brown); }
+  .cakes-note {
+    text-align: center;
+    margin-top: 30px;
+    color: var(--muted);
+    font-style: italic;
+  }
+
+  /* ---------- Отзывы ---------- */
+  #reviews { background: var(--green-soft); }
+  .rating-summary {
+    text-align: center;
+    margin-bottom: 40px;
+  }
+  .rating-summary .score { font-size: 52px; font-weight: 800; color: var(--green-dark); }
+  .rating-summary .stars { color: #f5b301; font-size: 24px; letter-spacing: 3px; }
+  .rating-summary a { color: var(--green-dark); font-weight: 600; }
+  .reviews-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 22px;
+  }
+  .review-card {
+    background: #fff;
+    border-radius: 16px;
+    padding: 26px;
+    box-shadow: 0 4px 14px rgba(0,0,0,.05);
+  }
+  .review-head { display: flex; align-items: center; gap: 12px; margin-bottom: 12px; }
+  .avatar {
+    width: 44px; height: 44px;
+    border-radius: 50%;
+    background: var(--green);
+    color: #fff;
+    display: flex; align-items: center; justify-content: center;
+    font-weight: 700;
+    font-size: 18px;
+    flex-shrink: 0;
+  }
+  .review-head .name { font-weight: 700; }
+  .review-head .date { color: var(--muted); font-size: 13px; }
+  .review-stars { color: #f5b301; margin-bottom: 8px; }
+  .review-text { font-size: 15px; color: var(--text); }
+
+  /* ---------- Контакты ---------- */
+  footer {
+    background: var(--green-dark);
+    color: #fff;
+    padding: 50px 0 30px;
+  }
+  .contacts-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 24px;
+    margin-bottom: 30px;
+  }
+  .contact-item .icon { font-size: 28px; margin-bottom: 8px; }
+  .contact-item h4 { font-size: 16px; margin-bottom: 4px; }
+  .contact-item p, .contact-item a { color: rgba(255,255,255,.85); font-size: 15px; text-decoration: none; }
+  .contact-item a:hover { text-decoration: underline; }
+  footer .copy { text-align: center; color: rgba(255,255,255,.55); font-size: 13px; border-top: 1px solid rgba(255,255,255,.15); padding-top: 20px; }
+</style>
+</head>
+<body>
+
+<!-- ================= ШАПКА ================= -->
+<header>
+  <div class="container">
+    <span class="logo-emoji">🍰🌿</span>
+    <h1>Подножный корм</h1>
+    <p class="tagline">Кафе правильного питания: торты без сахара, глютена и лактозы, авторские напитки и пространство, где вкусно быть здоровым</p>
+    <a href="#cakes" class="btn">Наше меню</a>
+    <a href="#contacts" class="btn secondary">Как нас найти</a>
+  </div>
+</header>
+
+<nav>
+  <div class="container">
+    <a href="#about">Концепция</a>
+    <a href="#cakes">Торты</a>
+    <a href="#reviews">Отзывы</a>
+    <a href="#contacts">Контакты</a>
+  </div>
+</nav>
+
+<!-- ================= КОНЦЕПЦИЯ ================= -->
+<section id="about">
+  <div class="container">
+    <h2>Наша концепция</h2>
+    <p class="section-sub">Вкусно — не значит вредно. Мы доказываем это на каждом десерте.</p>
+
+    <div class="concept-intro">
+      <strong>«Подножный корм»</strong> — уютное, вкусное и полезное пространство здорового питания.
+      Здесь классические десерты переосмыслены по всем правилам правильного питания:
+      мы готовим торты и конфеты <strong>без сахара, глютена и лактозы</strong>, делаем веганское мороженое,
+      варим церемониальное какао и кофе в джезве на песке. А ещё у нас проходят настольные игры,
+      книжный клуб, музыкально-поэтические вечера и выступления спикеров — приходите за десертом, оставайтесь за атмосферой.
+    </div>
+
+    <div class="concept-grid">
+      <div class="concept-card">
+        <div class="icon">🚫🍬</div>
+        <h3>Без сахара, глютена и лактозы</h3>
+        <p>Все наши торты и десерты безопасны для тех, кто следит за питанием, и приятны всем остальным.</p>
+      </div>
+      <div class="concept-card">
+        <div class="icon">🎂</div>
+        <h3>Авторские торты на заказ</h3>
+        <p>Принимаем заказы на торты и конфеты к любому празднику — красивая подача и честный состав.</p>
+      </div>
+      <div class="concept-card">
+        <div class="icon">☕</div>
+        <h3>Классика и авторские напитки</h3>
+        <p>Чай, кофе, церемониальное какао, куркума, безалкогольный глинтвейн, кофе в джезве на песке.</p>
+      </div>
+      <div class="concept-card">
+        <div class="icon">🥣</div>
+        <h3>Полезные завтраки</h3>
+        <p>Каши, сырники, смузи, омлеты, вафли и панкейки — сытно и без лишнего сахара.</p>
+      </div>
+      <div class="concept-card">
+        <div class="icon">📚</div>
+        <h3>Пространство со смыслом</h3>
+        <p>Wi-Fi, библиотека, метафорические карты, еженедельные мероприятия и встречи с интересными людьми.</p>
+      </div>
+      <div class="concept-card">
+        <div class="icon">🌱</div>
+        <h3>Растительная продукция</h3>
+        <p>Лимонады без сахара, дагестанский урбеч, vegan-мороженое и безопасные для здоровья перекусы.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= ТОРТЫ ================= -->
+<section id="cakes">
+  <div class="container">
+    <h2>Наши торты</h2>
+    <p class="section-sub">Каждый торт — без сахара, глютена и лактозы. Составляем под ваш праздник или выбирайте из витрины.</p>
+
+    <div class="cakes-grid">
+      <div class="cake-card">
+        <div class="cake-img">🍫</div>
+        <div class="cake-body">
+          <h3>Шоколадный RAW-торт</h3>
+          <p>Сливочный шоколадный торт без выпечки: насыщенный вкус, лёгкая текстура, ни грамма рафинированного сахара.</p>
+          <div class="cake-tags"><span class="tag">без сахара</span><span class="tag">raw</span></div>
+          <div class="cake-price">1 600 ₽</div>
+        </div>
+      </div>
+      <div class="cake-card">
+        <div class="cake-img">🍮</div>
+        <div class="cake-body">
+          <h3>RAW-тирамису</h3>
+          <p>Итальянская классика в формате правильного питания: кофейная нотка, воздушность, без лактозы.</p>
+          <div class="cake-tags"><span class="tag">без лактозы</span><span class="tag">raw</span></div>
+          <div class="cake-price">320 ₽</div>
+        </div>
+      </div>
+      <div class="cake-card">
+        <div class="cake-img">🥐</div>
+        <div class="cake-body">
+          <h3>Наполеон</h3>
+          <p>Хрустящие слои и нежная прослойка — знакомый вкус детства без глютена и лишнего сахара.</p>
+          <div class="cake-tags"><span class="tag">без глютена</span><span class="tag">без сахара</span></div>
+          <div class="cake-price">330 ₽</div>
+        </div>
+      </div>
+      <div class="cake-card">
+        <div class="cake-img">🤍</div>
+        <div class="cake-body">
+          <h3>Меренга</h3>
+          <p>Воздушная меренга — лёгкий десерт для тех, кто хочет сладкое без чувства вины.</p>
+          <div class="cake-tags"><span class="tag">без глютена</span></div>
+          <div class="cake-price">330 ₽</div>
+        </div>
+      </div>
+      <div class="cake-card">
+        <div class="cake-img">🍬</div>
+        <div class="cake-body">
+          <h3>RAW-конфеты</h3>
+          <p>Ассорти конфет без сахара — идеальный подарок и дополнение к любому чаепитию.</p>
+          <div class="cake-tags"><span class="tag">без сахара</span><span class="tag">подарок</span></div>
+          <div class="cake-price">от 150 ₽</div>
+        </div>
+      </div>
+      <div class="cake-card">
+        <div class="cake-img">✨</div>
+        <div class="cake-body">
+          <h3>Торт на заказ</h3>
+          <p>Праздничный торт по вашему желанию: размер, начинки и оформление обсуждаем индивидуально.</p>
+          <div class="cake-tags"><span class="tag">на заказ</span><span class="tag">праздник</span></div>
+          <div class="cake-price">по запросу</div>
+        </div>
+      </div>
+    </div>
+    <p class="cakes-note">* Актуальный перечень тортов уточняйте у администратора или по телефону +7 922 026-66-46.</p>
+  </div>
+</section>
+
+<!-- ================= ОТЗЫВЫ ================= -->
+<section id="reviews">
+  <div class="container">
+    <h2>Отзывы гостей</h2>
+    <p class="section-sub">Что говорят о нас те, кто уже пробовал</p>
+
+    <div class="rating-summary">
+      <div class="score">4.8</div>
+      <div class="stars">★★★★★</div>
+      <p>средняя оценка гостей · <a href="https://yandex.ru/maps/org/podnozhny_korm/84086361481/" target="_blank" rel="noopener">читать все отзывы на Яндекс Картах →</a></p>
+    </div>
+
+    <div class="reviews-grid">
+      <!-- БЛОК ДЛЯ ОТЗЫВОВ: тексты будут добавлены после получения реальных отзывов с Яндекс Карт -->
+      <div class="review-card">
+        <div class="review-head">
+          <div class="avatar">Г</div>
+          <div>
+            <div class="name">Гость кафе</div>
+            <div class="date">Яндекс Карты</div>
+          </div>
+        </div>
+        <div class="review-stars">★★★★★</div>
+        <p class="review-text">Оставьте свой отзыв о «Подножном корме» на Яндекс Картах — лучшие истории мы публикуем здесь.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= КОНТАКТЫ ================= -->
+<footer id="contacts">
+  <div class="container">
+    <div class="contacts-grid">
+      <div class="contact-item">
+        <div class="icon">📍</div>
+        <h4>Адрес</h4>
+        <p>ФТ Сириус, ул. Цимлянская, 12, к. 13</p>
+      </div>
+      <div class="contact-item">
+        <div class="icon">🕗</div>
+        <h4>Часы работы</h4>
+        <p>Ежедневно с 07:00 до 21:00</p>
+      </div>
+      <div class="contact-item">
+        <div class="icon">📞</div>
+        <h4>Телефон</h4>
+        <p><a href="tel:+79220266646">+7 922 026-66-46</a></p>
+      </div>
+      <div class="contact-item">
+        <div class="icon">💬</div>
+        <h4>Мы в сети</h4>
+        <p><a href="https://podnozhnyjkorm.uds.app/c" target="_blank" rel="noopener">Онлайн-витрина</a> · Telegram-канал · WhatsApp</p>
+      </div>
+    </div>
+    <div class="copy">© <span id="year"></span> Кафе «Подножный корм». Ждём всех в гости! 💚</div>
+  </div>
+</footer>
+
+<script>
+  document.getElementById('year').textContent = new Date().getFullYear();
+</script>
+
+</body>
+</html>
